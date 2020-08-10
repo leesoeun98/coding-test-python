@@ -1,15 +1,24 @@
-def SelectionSort(num):
-    for i in range(len(num)-1):
-        for j in range(i+1, len(num)):
-            if num[i]>num[j]:
-                num[i], num[j]=num[j], num[i]
+import sys
+def quickSort(num, start, end):
+    if start < end:  # 시작 인덱스 보다 끝 인덱스가 클 경우
+        left = start  # left 변수에 시작 인덱스 할당
+        pivot = num[end]  # //pivot 값은 a리스트에 마지막 원소 값
+        for i in range(start, end):  # 시작인덱스부터 끝 원소까지 반복
+            if num[i] < pivot:  # 리스트 인덱스 값이 pivot 값보다 작을 경우라면
+                num[i], num[left] = num[left], num[i]  # 해당 인덱스와 left인덱스  swap
+                left += 1  # 인덱스 하나 증가 시켜주기(자리를 옮겨가며 비교해야 하기 때문에)
+        num[left], num[end] = num[end], num[left]  # left인덱스와 끝 인덱스 swap
+        print(left)
+        quickSort(num, start, left - 1)  # 재귀 호출 (리스트, 시작 인덱스, left-1)
+        quickSort(num, left + 1, end)  # 재귀 호출 (리스트, left+1, 종료인덱스)
 
 n=int(input())
+
 num=[]
 for _ in range(n):
-    num.append(int(input()))
+    num.append(int(sys.stdin.readline()))
 
-SelectionSort(num)
+quickSort(num, 0, len(num)-1)
 for i in num:
     print(i)
 
