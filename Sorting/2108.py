@@ -20,7 +20,7 @@ def scope(num):
 for _ in range(n):
     num.append(int(sys.stdin.readline()))
 
-#최빈값 때문에 정렬해서 넣어야함 
+#최빈값 때문에 정렬해서 넣어야함
 num=sorted(num)
 
 print(round(avg(num)))
