@@ -20,9 +20,8 @@ def nqueen(row):
     else:
         #한 행에 대해서 모든 열을 검사
         for i in range(1, n+1):
-            #현재 위치 저장 
+            #현재 위치 저장
             col[row]=i
-            print(col)
             #해당 행에서 해당 좌표 통과시 유망하므로 다음 행으로 이동
             if ispossible(row):
                 nqueen(row+1)
