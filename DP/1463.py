@@ -1,24 +1,13 @@
 n=int(input())
-count=0
+#1에서 +1하거나 *3하거나 *2하는 방식으로 구하자.
+result=[0]*(n+1)
 if n==1:
-    count=0
-elif n<=3:
-    count=1
+    result[1]=0
 else:
-    while n>1:
-        n=n-3
-        count+=1
-        if n%3==0:
-            count=(n//3+count-1)
-            n//=3
-            break
-        elif n%2==0:
-            count=(count+n//2-1)
-            n //= 2
-            break
-        else:
-            n=n-1
-            count+=1
-print(count)
-
-
+    for i in range(2, n+1):
+        result[i]=result[i-1]+1
+        if i%3==0 and result[i]>result[i//3]+1:
+            result[i]=result[i//3]+1
+        elif i%2==0 and result[i]>result[i//2]+1:
+            result[i]=result[i//2]+1
+print(result[n])
