@@ -3,5 +3,5 @@ numstring=input()
 #문자열을 내림차순으로 정렬
 numstring=sorted(numstring, reverse=True)
 
-# 배열 원소 합쳐서 출력은 join 
+# 배열 원소 합쳐서 출력은 join
 print("".join(numstring))
