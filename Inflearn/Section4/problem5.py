@@ -8,9 +8,9 @@ for _ in range(n):
 meeting.sort(key=lambda x: (x[1], x[0]))
 count = 0
 endTime = 0
-# 다음 end와 비교해야하므로 endTime 변수를 둠
+# 이전의 endTime과 지금의 start비교해서 endTime 먼저 끝나면 count
 for start, end in meeting:
     if endTime <= start:
-        endTime = end
         count += 1
+        endTime = end
 print(count)
