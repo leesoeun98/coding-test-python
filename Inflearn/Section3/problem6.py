@@ -3,22 +3,19 @@ n = int(input())
 board=[]
 for i in range(n):
     board.append(list(map(int, sys.stdin.readline().split())))
-answer=[]
 
+largest =-2147000000
 for j in range(n):
-    sum=0
+    sum1=sum2=0
     for i in range(n):
-        sum+=board[i][j]
-    answer.append(sum)
+        sum1+=board[i][j]
+        sum2+=board[j][i]
+    largest = max(largest, sum1, sum2)
 
+sum1=sum2=0
 for i in range(n):
-    sum=0
-    for j in range(n):
-        sum+=board[i][j]
-    answer.append(sum)
-sum=0
-for i in range(n):
-    sum+=board[i][i]
-answer.append(sum)
+    sum1+=board[i][i]
+    sum2+=board[i][n-i-1]
+largest = max(largest, sum1, sum2)
 
-print(max(answer))
+print(largest)
