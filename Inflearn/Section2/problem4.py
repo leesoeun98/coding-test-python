@@ -1,12 +1,9 @@
 n = int(input())
 score = list(map(int, input().split()))
-avgscore=[]
-minindex=-1
 avg = round(sum(score) / n)
-for s in score:
-    avgscore.append(abs(s-avg))
-for i in range(n):
-    if min(avgscore)==avgscore[i]:
-        minindex=i
-        break
-print(avg, minindex+1)
+smallest=[]
+for idx, sc in enumerate(score):
+    smallest.append((idx, abs(sc-avg)))
+# abs 값 최소이면서 번호도 최소인게 [0] 원소
+smallest.sort(key=lambda x: (x[1], x[0]))
+print(avg, smallest[0][0]+1)
