@@ -13,3 +13,16 @@ while i < n:
             score += s
             i += 1
 print(score)
+"""
+n = int(input())
+score=list(map(int, input().split()))
+answer=0
+part=0
+for i in range(n):
+    if score[i]==0:
+        part=0
+    else:
+        part+=1
+        answer+=part
+print(answer)
+"""
