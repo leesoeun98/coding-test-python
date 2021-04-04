@@ -1,16 +1,15 @@
-# 1차 시도 실패
-# 2차 시도 답안 보고 함
 n = int(input())
-meeting = []
-for _ in range(n):
-    meeting.append(list(map(int, input().split())))
-
-meeting.sort(key=lambda x: (x[1], x[0]))
-count = 0
-endTime = 0
-# 이전의 endTime과 지금의 start비교해서 endTime 먼저 끝나면 count
+meeting=[]
+for i in range(n):
+    start, end=map(int, input().split())
+    meeting.append((start, end))
+#끝나는 시간 기준 정렬
+meeting.sort(key=lambda x:(x[1], x[0]))
+#첫 회의는 무조건 들어가야 함 그래서 endTime은 0부터 시작
+endTime=0
+count=0
 for start, end in meeting:
-    if endTime <= start:
-        count += 1
-        endTime = end
+    if endTime<=start:
+        count+=1
+        endTime=end
 print(count)

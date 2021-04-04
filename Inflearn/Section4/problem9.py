@@ -1,27 +1,29 @@
 #1차 시도 실패
-from collections import deque
+#2차 시도 실패 (답안도 이해 못함)
 
 n = int(input())
-numbers = list(map(int, input().split()))
-numbers = deque(numbers)
-answer = []
-answerNumber=[]
-if numbers[0] < numbers[-1]:
-    answerNumber.append(numbers.popleft())
-    answer.append('L')
-else:
-    answerNumber.append(numbers.pop())
-    answer.append('R')
-while numbers:
-    if numbers[-1] < numbers[0]:
-        if answerNumber[-1] < numbers[-1]:
-            answerNumber.append(numbers.pop())
-            answer.append('R')
-    else:
-        if answerNumber[-1] < numbers[0]:
-           answerNumber.append(numbers.popleft())
-           answer.append('L')
-    if numbers[0] < answerNumber[-1] and numbers[-1] < answerNumber[-1]:
+num=list(map(int, input().split()))
+answer=""
+arr=[]
+left=0
+right=n-1
+last=0
+while left<=right:
+    if num[left]>last:
+        arr.append((num[left], 'L'))
+    if num[right]>last:
+        arr.append((num[right], 'R'))
+    arr.sort()
+    if len(arr)==0:
         break
-print(answerNumber)
+    else:
+        answer+=arr[0][1]
+        last=arr[0][0]
+        if arr[0][1]=='L':
+            left+=1
+        else:
+            right-=1
+    arr.clear()
+print(len(answer))
 print(answer)
+
