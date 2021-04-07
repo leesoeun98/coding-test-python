@@ -15,3 +15,17 @@ for i in range(1, number+1):
         count += 1
 print(num)
 print(count)
+"""
+#숫자 만들기는 res=res*10+w로 
+word=input()
+res=0
+count=0
+for w in word:
+    if w.isdigit():
+        res=res*10+int(w)
+print(res)
+for i in range(1, res+1):
+    if res%i==0:
+        count+=1
+print(count)
+"""
