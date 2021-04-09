@@ -22,10 +22,9 @@ print(max(boxes)-min(boxes))
 """
 l = int(input())
 boxes=list(map(int, input().split()))
-m = int(input())
-for _ in range(m):
+for i in range(int(input())):
     boxes.sort()
-    boxes[-1]-=1
     boxes[0]+=1
+    boxes[-1]-=1
 print(max(boxes)-min(boxes))
 """
