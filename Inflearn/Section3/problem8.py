@@ -28,3 +28,32 @@ for i in range(n//2+1, n):
         count+=board[i][j]
 print(count)
 
+"""
+n = int(input())
+board = [list(map(int, input().split())) for i in range(n)]
+mid=n//2
+count=0
+for i in range(int(input())):
+    row, direction, cnt=map(int, input().split())
+    row-=1
+    if direction==0:
+        for _ in range(cnt):
+            temp=board[row][0]
+            for r in range(1, len(board[row])):
+                board[row][r-1]=board[row][r]
+            board[row][-1]=temp
+    else:
+        for _ in range(cnt):
+            temp=board[row][-1]
+            for r in range(len(board[row])-1, 0, -1):
+                board[row][r]=board[row][r-1]
+            board[row][0]=temp
+
+for i in range(n//2+1):
+    for j in range(mid-(n//2-i), mid+(n//2-i)+1):
+        count+=board[i][j]
+for i in range(n//2+1, n):
+    for j in range(mid-(i-n//2), mid+(i-n//2)+1):
+        count+=board[i][j]
+print(count)
+"""

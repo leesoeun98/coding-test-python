@@ -21,9 +21,9 @@ for i in range(7):
 print(count)
 
 """
-board=[list(map(int, input().split())) for _ in range(7)]
+board=[list(map(int, input().split())) for i in range(7)]
 count=0
-#가로 체크
+#가로 검사
 for i in range(7):
     for j in range(3):
         for k in range(2):
@@ -31,10 +31,11 @@ for i in range(7):
                 break
         else:
             count+=1
-for i in range(7):
-    for j in range(3):
+#세로 검사
+for i in range(3):
+    for j in range(7):
         for k in range(2):
-            if board[j+k][i]!=board[j+4-k][i]:
+            if board[i+k][j]!=board[i+4-k][j]:
                 break
         else:
             count+=1
