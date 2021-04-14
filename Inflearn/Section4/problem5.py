@@ -13,3 +13,18 @@ for m in meeting:
         count+=1
         endTime=m[1]
 print(count)
+
+"""
+meeting=[]
+for _ in range(int(input())):
+    start, end=map(int, input().split())
+    meeting.append((start, end))
+meeting.sort(key=lambda x:(x[1], x[0]))
+endTime=0
+count=0
+for start, end in meeting:
+    if start>=endTime:
+        count+=1
+        endTime=end
+print(count)
+"""

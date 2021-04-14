@@ -29,3 +29,38 @@ for e in equation:
 while stack:
     answer+=stack.pop()
 print(answer)
+
+"""
+# 중위 -> 후기
+# 1. 피연산자는 바로 출력
+# 2. 연산자는 자신보다 우선순위 높거나 같은 것은 pop
+# 2. 이후 push
+# 3. ( 는 무조건 스택에 넣음
+# 4. ) 는 (를 만날때까지 스태에서 pop
+def Priority(x):
+    if x == '+' or x == '-':
+        return 0
+    elif x == '*' or x == '/':
+        return 1
+
+
+eq = input()
+stack = []
+operator = ['-', '+', '*', '/']
+for e in eq:
+    if e.isdigit():
+        print(e, end="")
+    elif e in operator:
+        while stack and stack[-1] in operator and Priority(e) <= Priority(stack[-1]):
+            print(stack.pop(), end="")
+        stack.append(e)
+    elif e == '(':
+        stack.append(e)
+    elif e == ')':
+        while stack and stack[-1] != '(':
+            print(stack.pop(), end="")
+        stack.pop()  # (제거
+
+while stack:
+    print(stack.pop(), end="")
+"""
