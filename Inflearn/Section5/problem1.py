@@ -15,3 +15,18 @@ if rmcnt!=0:
 #list =>str => join
 res=''.join(map(str, stack))
 print(res)
+
+"""
+num, rm = map(int, input().split())
+stack=[]
+numarr=list(str(num))
+for n in numarr:
+    while stack and rm!=0 and int(stack[-1])<int(n):
+        stack.pop()
+        rm-=1
+    stack.append(n)
+if rm!=0:
+    stack=stack[:-rm]
+answer=''.join(stack)
+print(answer)
+"""
