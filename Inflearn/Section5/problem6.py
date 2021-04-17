@@ -29,14 +29,13 @@ patients=deque(patients)
 index=0
 while patients:
     first=patients.popleft()
-    for i in range(len(patients)):
-        if first[1]<patients[i][1]:
+    for p in patients:
+        if first[1]<p[1]:
             patients.append(first)
             break
     else:
-        index += 1
+        index+=1
         if first[0]==m:
             print(index)
             break
-
 """

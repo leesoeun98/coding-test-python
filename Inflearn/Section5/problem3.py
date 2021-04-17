@@ -64,3 +64,37 @@ for e in eq:
 while stack:
     print(stack.pop(), end="")
 """
+
+"""
+#숫자는 print
+#연산자이면 자신과 stack비교해서 우선순위 높은거부터 pop
+#=> 우선순위 낮으면 일단 stack에 push 높으면 pop
+#(면 push
+#)면 (나올때까지 pop
+eq=input()
+stack=[]
+res=""
+operator=['/','*','-','+']
+def getPriority(x):
+    if x=='/' or x=='*':
+        return 1
+    elif x=='-' or x=='+':
+        return 0
+for e in eq:
+    if e.isdigit():
+        res+=e
+    else:
+        if e in operator:
+            while stack and stack[-1] in operator and getPriority(stack[-1])>=getPriority(e):
+                res+=stack.pop()
+            stack.append(e)
+        elif e==')':
+            while stack and stack[-1]!='(':
+                res+=stack.pop()
+            stack.pop()
+        elif e=='(':
+            stack.append(e)
+while stack:
+    res+=stack.pop()
+print(res)
+"""
