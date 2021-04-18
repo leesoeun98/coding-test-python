@@ -29,3 +29,35 @@ if flag:
     print("YES")
 else:
     print("NO")
+"""
+board = [list(map(int, input().split())) for i in range(9)]
+
+for i in range(9):
+    check1 = [0 for i in range(10)]
+    for j in range(9):
+        if check1[board[i][j]] == 0:
+            check1[board[i][j]] += 1
+        else:
+            print("NO")
+            exit(0)
+
+for i in range(9):
+    check1 = [0 for i in range(10)]
+    for j in range(9):
+        if check1[board[j][i]] == 0:
+            check1[board[j][i]] += 1
+        else:
+            print("NO")
+            exit(0)
+
+for i in range(0, 9, 3):
+    check1 = [0 for i in range(10)]
+    for j in range(3):
+        for h in range(3):
+            if check1[board[i + j][i + h]] == 0:
+                check1[board[i + j][i + h]] += 1
+            else:
+                print("NO")
+                exit(0)
+print("YES")
+"""

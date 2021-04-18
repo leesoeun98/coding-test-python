@@ -1,21 +1,13 @@
-n =int(input())
-readyword=[]
-for _ in range(n):
-    readyword.append(input())
-for _ in range(n-1):
-    readyword.remove(input())
-print(*readyword)
-
-"""
-n =int(input())
-readyword=[]
+n = int(input())
 word=dict()
 for _ in range(n):
-    word[input()]=1
+    w=input()
+    #default는 0으로 지정
+    word[w]=word.get(w, 0)+1
 for _ in range(n-1):
-    word[input()]=0
+    d=input()
+    word[d] = word.get(d, 0) - 1
 for key, value in word.items():
-    if value==1:
+    if value!=0:
         print(key)
         break
-"""

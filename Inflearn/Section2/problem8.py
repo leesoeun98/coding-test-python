@@ -22,26 +22,29 @@ for num in nums:
 """
 # 숫자 뒤집기는 앞으로 이렇게
 import math
+n = int(input())
+num = list(map(int, input().split()))
+
 
 def isPrime(x):
-    flag = True
+    if x == 1:
+        return False
     for i in range(2, int(math.sqrt(x)) + 1):
         if x % i == 0:
-            flag = False
-            return flag
-        else:
-            flag = True
-    return flag
+            return False
+    else:
+        return True
 
-n = int(input())
-num=list(map(int, input().split()))
-for i in range(n):
-  reversed_num=0
-  while num[i]>0:
-    digit=num[i]%10
-    num[i]=num[i]//10
-    reversed_num=reversed_num*10+digit
-  if isPrime(reversed_num) and reversed_num!=1:
-    print(reversed_num)
 
+def reverse(x):
+    res = 0
+    while x > 0:
+        digit = x % 10
+        x //= 10
+        res = res*10+ digit
+    return res
+
+for n in num:
+    if isPrime(reverse(n)):
+        print(reverse(n), end=" ")
 """

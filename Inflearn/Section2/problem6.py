@@ -37,3 +37,21 @@ for x in a:
 answer.sort(key=lambda x:(-x[0], x[1]))
 print(num[answer[0][1]])
 """
+
+"""
+n = int(input())
+numbers=list(map(int, input().split()))
+answer=0
+answersum=0
+def digitSum(x):
+    digitsum=0
+    while x>0:
+        digitsum+=x%10
+        x//=10
+    return digitsum
+for idx, num in enumerate(numbers):
+    if answersum<digitSum(num):
+        answer=num
+        answersum=digitSum(num)
+print(answer)
+"""
