@@ -1,16 +1,16 @@
 n = int(input())
 num=list(map(int, input().split()))
-def DFS(depth, firstsum):
+total=sum(num)
+def DFS(depth, sumnum):
     if depth==n:
-        if firstsum==sum(num)-firstsum:
+        if total-sumnum==sumnum:
             print("YES")
             exit(0)
         return
     else:
-        #해당 index 넣은거
-        DFS(depth+1, firstsum+num[depth])
-        #해당 index 안넣은거
-        DFS(depth+1, firstsum)
-
-DFS(0, 0)
+        #넣고
+        DFS(depth+1, sumnum+num[depth])
+        #안넣고
+        DFS(depth+1, sumnum)
+DFS(0,0)
 print("NO")
