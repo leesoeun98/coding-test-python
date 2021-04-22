@@ -11,6 +11,7 @@ for i in range(n):
         if maps[i][j]==1:
             maps[i][j]=0
             queue.append((i, j))
+            # queue 끝나면 섬도 끝남
             while queue:
                 x, y=queue.popleft()
                 for direction in range(8):

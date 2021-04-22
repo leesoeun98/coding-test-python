@@ -1,4 +1,5 @@
 n = int(input())
+#입력주의
 board = [list(map(int, input())) for i in range(n)]
 house=[[0]*n for i in range(n)]
 res = []
@@ -18,9 +19,11 @@ def DFS(x, y):
 
 for i in range(n):
     for j in range(n):
+        #0이면 돌 이유가 없음
         if board[i][j]==1:
             count=0
             DFS(i, j)
+            #DFS끝나면 단지가 끝난것. BFS에서도 QUEUE가 끝나면 단지가 끝난 것
             res.append(count)
             index+=1
 print(len(res))
