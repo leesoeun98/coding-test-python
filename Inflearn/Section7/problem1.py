@@ -1,22 +1,25 @@
 n, m = map(int, input().split())
-problems=[]
-res=0
-for _ in range(n):
+problems = []
+for i in range(n):
     score, time = map(int, input().split())
     problems.append((score, time))
-def DFS(p, score, time):
+res = -987654321
+
+
+def DFS(depth, sumscore, sumtime):
     global res
-    if p==n:
-        if time<=m:
-            res=max(res, score)
+    if depth == n:
+        if res < sumscore and sumtime <= m:
+            res = sumscore
         return
-    elif time == m:
-        res=max(res, score)
+    if sumtime > m:
         return
     else:
-        #문제 풀었을 때
-        DFS(p+1, score+problems[p][0], time+problems[p][1])
-        #문제 못 풀었을 때
-        DFS(p+1, score, time)
-DFS(0,0,0)
+        # 문제 풀고
+        DFS(depth + 1, sumscore + problems[depth][0], sumtime + problems[depth][1])
+        # 문제 안풀고
+        DFS(depth + 1, sumscore, sumtime)
+
+
+DFS(0, 0, 0)
 print(res)

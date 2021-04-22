@@ -1,21 +1,30 @@
 n = int(input())
-coins=list(map(int, input().split()))
-coins.sort(reverse=True)
-change=int(input())
-res=9876543210
-def DFS(depth, sumc):
+coin = list(map(int, input().split()))
+coin.sort(reverse=True)
+m = int(input())
+res = 987654321
+
+
+def DFS(depth, change):
     global res
-    if depth>res:
+    # res보다 동전개수 많이 쓸 경우 탐색할 필요 x
+    if depth > res:
         return
-    if sumc==change:
-        if res>depth:
-            res=depth
+    if change > m:
+        return
+    # 금액이 m이 되면 종료
+    # m이 될떼까지 depth가 곧 동전 개수
+    # 동전 n개 가지 뻗고 다시 n개 뻗고의 반복이라 for문 사용
+    if change == m:
+        if res > depth:
+            res = depth
         return
     else:
         for i in range(n):
-            if sumc+coins[i]<=change:
-                DFS(depth+1, sumc+coins[i])
-DFS(0,0)
+            DFS(depth + 1, change + coin[i])
+
+
+DFS(0, 0)
 print(res)
 
 """n = int(input())

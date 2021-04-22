@@ -1,14 +1,22 @@
 k = int(input())
-weight=list(map(int, input().split()))
-res=set()
+weight = list(map(int, input().split()))
+total = sum(weight)
+check = set()
+
+
 def DFS(depth, sumw):
-    if depth==k:
-        if 0<sumw<=sum(weight):
-            res.add(sumw)
+    if depth == k:
+        if 0 < sumw <= total:
+            check.add(sumw)
         return
     else:
-        DFS(depth+1, sumw)
-        DFS(depth+1, sumw-weight[depth]) #추를 오른쪽에
-        DFS(depth+1, sumw+weight[depth]) #추를 왼쪽에
+        # 안넣고
+        DFS(depth + 1, sumw)
+        # 왼쪽에 넣고
+        DFS(depth + 1, sumw - weight[depth])
+        # 오른쪽에 넣고
+        DFS(depth + 1, sumw + weight[depth])
+
+
 DFS(0, 0)
-print(sum(weight)-len(res))
+print(total - len(check))

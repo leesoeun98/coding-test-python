@@ -1,22 +1,25 @@
-#이해불가 답안 봄 
-t= int(input())
+t = int(input())
 k = int(input())
-changeValue=[]
-changeN=[]
-count=0
+coin = []
 for i in range(k):
-    v, n = map(int, input().split())
-    changeValue.append(v)
-    changeN.append(n)
+    value, count = map(int, input().split())
+    coin.append((value, count))
+count = 0
+
+
 def DFS(depth, sumc):
     global count
-    if sumc>t:
+    if depth == k:
+        if sumc == t:
+            count += 1
         return
-    if depth==k:
-        if sumc==t:
-            count+=1
+    if sumc > t:
+        return
     else:
-        for i in range(changeN[depth]+1):
-            DFS(depth+1, sumc+changeValue[depth]*i)
-DFS(0,0)
+        for i in range(coin[depth][1] + 1):
+            # 동전마다 개수가 다른데, 각 동전의 type이 depth가 되고 동전의 개수가 가지가 됨
+            DFS(depth + 1, sumc + coin[depth][0] * i)
+
+
+DFS(0, 0)
 print(count)
