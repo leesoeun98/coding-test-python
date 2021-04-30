@@ -2,20 +2,20 @@ from collections import deque
 
 need = input()
 for _ in range(int(input())):
+    schedule = input()
     needs = deque(need)
-    schedule = deque()
-    course = input()
-    for c in course:
-        # 하나씩만 저장
-        if c in need and c not in schedule:
-            schedule.append(c)
-    while schedule and need:
-        if schedule.popleft() != needs.popleft():
+    check = []
+    check = deque(check)
+    for s in schedule:
+        if s in need and s not in check:
+            check.append(s)
+    # check는 항상 need보다 짧거나 길이 같음
+    while check:
+        if needs.popleft() != check.popleft():
             print("NO")
             break
     else:
-        # 하나씩만 담아서 schedule은 needs보다 작거나 같음
-        if len(needs) != 0:
-            print("NO")
-        else:
+        if len(needs) == 0:
             print("YES")
+        else:
+            print("NO")

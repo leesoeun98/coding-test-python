@@ -8,16 +8,18 @@ res = -987654321
 
 def DFS(depth, sumscore, sumtime):
     global res
-    if depth == n:
-        if res < sumscore and sumtime <= m:
-            res = sumscore
-        return
     if sumtime > m:
         return
+    if depth == n:
+        #m보다 작거나 같으면 됨 주의
+        if sumtime <= m:
+            if res < sumscore:
+                res = sumscore
+        return
     else:
-        # 문제 풀고
+        # 문제 풀 때
         DFS(depth + 1, sumscore + problems[depth][0], sumtime + problems[depth][1])
-        # 문제 안풀고
+        # 문제 안 풀 때
         DFS(depth + 1, sumscore, sumtime)
 
 
