@@ -12,6 +12,21 @@ for i in range(n):
         break
 
 """
+def digit_sum(x):
+    digit=list(map(int, str(x)))
+    return sum(digit)
+n = int(input())
+num=list(map(int, input().split()))
+res_sum=0
+res=0
+for n in num:
+    d = digit_sum(n)
+    if res_sum < d:
+        res_sum=digit_sum(n)
+        res=n
+print(res)
+"""
+"""
 # 자릿수 합 구하기, 정렬 주의 
 n = int(input())
 num=list(map(int, input().split()))
