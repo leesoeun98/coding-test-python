@@ -13,3 +13,21 @@ for i in range(len(player)):
     else:
         count += 1
 print(count)
+
+"""
+n = int(input())
+player=[]
+for _ in range(n):
+    height, weight = map(int, input().split())
+    player.append([height, weight])
+player.sort(key=lambda x:(-x[1], -x[0]))
+#각 순서 사람들은 뒷사람들보다는 무게가 통과니까 키만 비교하면 된다. 앞 사람들보다 키가 크면 통과
+count=1
+for i in range(1, n):
+    for j in range(i):
+        if player[i][0]<=player[j][0]:
+            break
+    else:
+        count+=1
+print(count)
+"""

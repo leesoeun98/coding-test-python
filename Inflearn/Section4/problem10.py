@@ -1,14 +1,12 @@
-# 1차 시도 실패
-# 2차 시도 실패 (답안 봐도 못품)
 n = int(input())
-reversednum = list(map(int, input().split()))
-originalnum = [0 for i in range(n)]
-
+reversedNum = list(map(int, input().split()))
+original = [0 for _ in range(n)]
 for i in range(n):
     for j in range(n):
-        if reversednum[i] == 0 and originalnum[j] == 0:
-            originalnum[j] = i + 1
+        if original[j] == 0 and reversedNum[i] == 0:
+            original[j] = i + 1
             break
-        elif originalnum[j] == 0:
-            reversednum[i] -= 1
-print(*originalnum)
+        # 빈칸일때만 빼야함
+        elif original[j]==0 and reversedNum[i]!=0:
+            reversedNum[i] -= 1
+print(original)
