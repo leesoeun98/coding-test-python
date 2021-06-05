@@ -30,3 +30,25 @@ def DFS(depth):
 
 DFS(1)
 print(count)
+
+"""
+n, m = map(int, input().split())
+adj=[[0]*n for _ in range(n)]
+count=0
+for _ in range(m):
+    start, end=map(int, input().split())
+    adj[start-1][end-1]=1
+
+def dfs(node, path):
+    global count
+    if node==n:
+        count+=1
+        print(*path)
+        return
+    else:
+        for i in range(n):
+            if adj[node-1][i]==1 and (i+1 not in path):
+                dfs(i+1, path+[i+1])
+dfs(1,[1])
+print(count)
+"""
