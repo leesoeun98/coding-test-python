@@ -28,3 +28,26 @@ def DFS(depth, position):
 
 DFS(0, 0)
 print(count)
+
+"""
+code=list(map(int, str(input())))
+ans=[]
+count=0
+def dfs(depth, res):
+    global count
+    if depth==len(code):
+        ans.append(''.join(res))
+        count+=1
+        return
+    else:
+        for i in range(1, 27):
+            # 한 자리
+            if i<10 and code[depth]==i:
+                dfs(depth+1, res+[chr(ord('A')-1+i)])
+            # 두 자리
+            elif depth<len(code)-1:
+                if 10<=i<27 and code[depth]==i//10 and code[depth+1]==i%10:
+                    dfs(depth+2, res+[chr(ord('A')-1+i)])
+dfs(0,[])
+print(ans)
+print(count)"""
