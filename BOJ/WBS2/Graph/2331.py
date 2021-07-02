@@ -20,3 +20,24 @@ for t in temp:
     else:
         break
 print(count)
+"""
+a, p = map(int, input().split())
+cycle=[]
+def calc(num):
+    nu=list(str(num))
+    res=0
+    for n in nu:
+        res+=int(n)**p
+    return res
+
+cycle.append(a)
+while True:
+    before=cycle[-1]
+    cur=calc(before)
+
+    if cur in cycle:
+        break
+    else:
+        cycle.append(cur)
+rest=cycle[:cycle.index(calc(cycle[-1]))]
+print(len(rest))"""
