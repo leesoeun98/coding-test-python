@@ -12,3 +12,16 @@ n=list(n)
 for i in range(0, len(n), 3):
     s=''.join(map(str, n[i:i+3]))
     print(dict.get(s), end="")
+
+"""
+digit={'000':0, '001':1, '010':2, '011':3, '100':4, '101':5, '110':6, '111':7}
+num=list(input())
+res=""
+if len(num)%3==1:
+    num=['0']+['0']+num
+elif len(num)%3==2:
+    num=['0']+num
+
+for i in range(0,len(num), 3):
+    res+=str(digit[''.join(num[i:i+3])])
+print(res)"""

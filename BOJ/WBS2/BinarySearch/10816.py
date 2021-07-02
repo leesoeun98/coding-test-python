@@ -15,3 +15,24 @@ for h in is_have:
         print(dic[h], end=" ")
     else:
         print(0, end=" ")
+
+"""
+        have={}
+n=int(input())
+card=list(map(int, input().split()))
+for c in card:
+    if c in have:
+        have[c]+=1
+    else:
+        have[c]=1
+m=int(input())
+check=[0]*m
+query=list(map(int, input().split()))
+
+for i in range(m):
+    if query[i] in have:
+        check[i]=have[query[i]]
+    else:
+        check[i]=0
+print(*check)
+"""
